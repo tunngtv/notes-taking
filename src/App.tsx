@@ -1,11 +1,17 @@
-import NotesPage from '@/pages/NotesPage';
+import { Provider } from "react-redux";
+import { store } from "./redux/store/store";
+import Navbar from "@/components/navbar/Navbar";
+import PanelsContainer from "@/components/panelsContainer/PanelsContainer.component";
 
-function App() {
+const App = () => {
   return (
-    <main className="h-screen bg-background text-foreground">
-      <NotesPage />
-    </main>
+    <Provider store={store}>
+      <main className="main">
+        <Navbar />
+        <PanelsContainer />
+      </main>
+    </Provider>
   );
-}
+};
 
 export default App;

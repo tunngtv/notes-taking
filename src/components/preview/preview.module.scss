@@ -1,0 +1,48 @@
+@import '/src//styles/variables';
+
+.preview {
+    grid-area: preview;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    @include scrollbar;
+
+    a {
+        color: var(--primary-color, #007bff);
+    }
+
+    @include smallDevice {
+        padding: 0.5rem 1rem;
+        max-width: 100%;
+    }
+
+    code {
+        max-width: 100%;
+
+        * {
+            @include scrollbar;
+        }
+    }
+
+    ul {
+        li {
+            label {
+                input {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    div {
+        hr {
+            margin: 1rem 0;
+        }
+    }
+
+    hr {
+        margin: 1rem 0;
+    }
+
+}

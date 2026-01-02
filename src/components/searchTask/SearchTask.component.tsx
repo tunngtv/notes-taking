@@ -19,7 +19,7 @@ const SearchTask = ({ setVisibleNotes }: SearchTaskProps) => {
   };
 
   useEffect(() => {
-    const results = notes.notes.filter((note) =>
+    const results = notes.notes.filter(note =>
       note.title.toLowerCase().includes(search.toLowerCase())
     );
 
@@ -27,13 +27,19 @@ const SearchTask = ({ setVisibleNotes }: SearchTaskProps) => {
   }, [search, notes.notes, setVisibleNotes]);
 
   return (
-    <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-      <IoSearchOutline color="#5B5F5E" style={{ position: "absolute", left: "10px", zIndex: 1 }} />
+    <div
+      style={{ position: "relative", display: "flex", alignItems: "center" }}
+    >
+      <IoSearchOutline
+        color="#5B5F5E"
+        style={{ position: "absolute", left: "10px", zIndex: 1 }}
+      />
       <Input
         value={search}
         placeholder="Search"
         style={{ paddingLeft: "40px" }}
         onChange={handleChange}
+        className="rounded-none"
       />
     </div>
   );

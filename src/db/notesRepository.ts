@@ -1,8 +1,8 @@
-import { openDB } from './indexedDb';
-import { Note } from '@/types/note';
-import { generateUUID } from '@/utils/uuid';
+import { openDB } from "./indexedDb";
+import { Note } from "@/types/note";
+import { generateUUID } from "@/utils/uuid";
 
-const STORE_NAME = 'notes';
+const STORE_NAME = "notes";
 
 type PartialNote = Partial<Note>;
 
@@ -10,14 +10,14 @@ const notesRepository = {
   async createNote(noteData: PartialNote = {}): Promise<Note> {
     const db = await openDB();
     return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, 'readwrite');
+      const transaction = db.transaction(STORE_NAME, "readwrite");
       const store = transaction.objectStore(STORE_NAME);
-      
+
       const now = Date.now();
       const newNote: Note = {
         id: generateUUID(),
-        title: 'New Note',
-        content: '',
+        title: "New Note",
+        content: "",
         createdAt: now,
         updatedAt: now,
         ...noteData,
@@ -29,9 +29,12 @@ const notesRepository = {
         resolve(newNote);
       };
 
-      request.onerror = (event) => {
-        console.error('Error creating note:', (event.target as IDBRequest).error);
-        reject(new Error('Could not create note'));
+      request.onerror = event => {
+        console.error(
+          "Error creating note:",
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not create note"));
       };
     });
   },
@@ -39,18 +42,23 @@ const notesRepository = {
   async getAllNotes(): Promise<Note[]> {
     const db = await openDB();
     return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, 'readonly');
+      const transaction = db.transaction(STORE_NAME, "readonly");
       const store = transaction.objectStore(STORE_NAME);
       const request = store.getAll();
 
       request.onsuccess = () => {
-        const sortedNotes = request.result.sort((a, b) => b.updatedAt - a.updatedAt);
+        const sortedNotes = request.result.sort(
+          (a, b) => b.updatedAt - a.updatedAt
+        );
         resolve(sortedNotes);
       };
 
-      request.onerror = (event) => {
-        console.error('Error getting all notes:', (event.target as IDBRequest).error);
-        reject(new Error('Could not get all notes'));
+      request.onerror = event => {
+        console.error(
+          "Error getting all notes:",
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not get all notes"));
       };
     });
   },
@@ -58,7 +66,7 @@ const notesRepository = {
   async getNoteById(id: string): Promise<Note | undefined> {
     const db = await openDB();
     return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, 'readonly');
+      const transaction = db.transaction(STORE_NAME, "readonly");
       const store = transaction.objectStore(STORE_NAME);
       const request = store.get(id);
 
@@ -66,9 +74,12 @@ const notesRepository = {
         resolve(request.result);
       };
 
-      request.onerror = (event) => {
-        console.error(`Error getting note by id ${id}:`, (event.target as IDBRequest).error);
-        reject(new Error('Could not get note'));
+      request.onerror = event => {
+        console.error(
+          `Error getting note by id ${id}:`,
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not get note"));
       };
     });
   },
@@ -76,18 +87,21 @@ const notesRepository = {
   async updateNote(note: PartialNote): Promise<Note> {
     const db = await openDB();
     return new Promise(async (resolve, reject) => {
-       if (!note.id) {
-        return reject(new Error('Note ID is required for updates'));
+      if (!note.id) {
+        return reject(new Error("Note ID is required for updates"));
       }
 
-      const transaction = db.transaction(STORE_NAME, 'readwrite');
+      const transaction = db.transaction(STORE_NAME, "readwrite");
       const store = transaction.objectStore(STORE_NAME);
-      
+
       const existingNoteRequest = store.get(note.id);
 
-      existingNoteRequest.onerror = (event) => {
-        console.error('Error fetching existing note for update:', (event.target as IDBRequest).error);
-        reject(new Error('Could not fetch existing note for update'));
+      existingNoteRequest.onerror = event => {
+        console.error(
+          "Error fetching existing note for update:",
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not fetch existing note for update"));
       };
 
       existingNoteRequest.onsuccess = () => {
@@ -108,9 +122,12 @@ const notesRepository = {
           resolve(updatedNote);
         };
 
-        updateRequest.onerror = (event) => {
-          console.error('Error updating note:', (event.target as IDBRequest).error);
-          reject(new Error('Could not update note'));
+        updateRequest.onerror = event => {
+          console.error(
+            "Error updating note:",
+            (event.target as IDBRequest).error
+          );
+          reject(new Error("Could not update note"));
         };
       };
     });
@@ -119,7 +136,7 @@ const notesRepository = {
   async deleteNote(id: string): Promise<void> {
     const db = await openDB();
     return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, 'readwrite');
+      const transaction = db.transaction(STORE_NAME, "readwrite");
       const store = transaction.objectStore(STORE_NAME);
       const request = store.delete(id);
 
@@ -127,9 +144,12 @@ const notesRepository = {
         resolve();
       };
 
-      request.onerror = (event) => {
-        console.error(`Error deleting note with id ${id}:`, (event.target as IDBRequest).error);
-        reject(new Error('Could not delete note'));
+      request.onerror = event => {
+        console.error(
+          `Error deleting note with id ${id}:`,
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not delete note"));
       };
     });
   },
@@ -137,13 +157,13 @@ const notesRepository = {
   async searchNotes(query: string): Promise<Note[]> {
     const db = await openDB();
     return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, 'readonly');
+      const transaction = db.transaction(STORE_NAME, "readonly");
       const store = transaction.objectStore(STORE_NAME);
       const request = store.openCursor();
       const matchingNotes: Note[] = [];
       const lowerCaseQuery = query.toLowerCase();
 
-      request.onsuccess = (event) => {
+      request.onsuccess = event => {
         const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
         if (cursor) {
           const note: Note = cursor.value;
@@ -159,9 +179,12 @@ const notesRepository = {
         }
       };
 
-      request.onerror = (event) => {
-        console.error('Error searching notes:', (event.target as IDBRequest).error);
-        reject(new Error('Could not search notes'));
+      request.onerror = event => {
+        console.error(
+          "Error searching notes:",
+          (event.target as IDBRequest).error
+        );
+        reject(new Error("Could not search notes"));
       };
     });
   },

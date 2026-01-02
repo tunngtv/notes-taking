@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 import styles from "./navigation.module.scss";
 import Notes from "../notes/Notes.component";
 import NavigationHeader from "../navigationHeader/NavigationHeader.component";
@@ -17,7 +16,7 @@ const Navigation = ({ setFlag }: { setFlag?: (flag: boolean) => void }) => {
         setVisibleNotes(notes.notes);
       }
     }, 0);
-    
+
     return () => clearTimeout(timer);
   }, [notes.notes]);
 

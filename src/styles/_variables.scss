@@ -5,34 +5,34 @@ $sidebarWidth: 355px;
 $smallDeviceSize: 1099px;
 
 @mixin scrollbar {
-    &::-webkit-scrollbar {
-        background-color: #e2e8f0;
-        -webkit-appearance: none;
-        width: 0.35em;
-        height: 0.35rem;
-    }
+  &::-webkit-scrollbar {
+    background-color: #e2e8f0;
+    -webkit-appearance: none;
+    width: 0.35em;
+    height: 0.35rem;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #cbd5e0;
-        border-radius: 1rem;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 1rem;
+  }
 }
 
 @mixin hiddenScrollbar {
-    &::-webkit-scrollbar {
-        position: absolute;
-        background-color: transparent;
-        -webkit-appearance: none;
-        width: 0.5em;
-    }
+  &::-webkit-scrollbar {
+    position: absolute;
+    background-color: transparent;
+    -webkit-appearance: none;
+    width: 0.5em;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #4a5568;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: #4a5568;
+  }
 }
 
 @mixin smallDevice {
-    @media screen and (max-width: $smallDeviceSize) {
-        @content;
-    }
+  @media screen and (max-width: $smallDeviceSize) {
+    @content;
+  }
 }

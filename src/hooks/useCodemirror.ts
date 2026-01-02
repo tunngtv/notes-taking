@@ -80,7 +80,7 @@ const useCodeMirror = ({ initialDoc, onChange }: UseCodeMirrorProps) => {
         oneDark,
         transparentTheme,
         EditorView.lineWrapping,
-        EditorView.updateListener.of((update) => {
+        EditorView.updateListener.of(update => {
           if (update.docChanged && onChange) {
             onChange(update.state);
           }

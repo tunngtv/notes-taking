@@ -16,10 +16,20 @@ const Navbar = () => {
         <Sidebar />
       ) : (
         <div style={{ width: "100vw" }}>
-          <div style={{ backgroundColor: "#2d3748", width: "100%", height: "100%" }}>
+          <div
+            style={{
+              backgroundColor: "#2d3748",
+              width: "100%",
+              height: "100%",
+            }}
+          >
             <Button
               variant="ghost"
-              style={{ backgroundColor: "#2d3748", borderRadius: "0", color: "white" }}
+              style={{
+                backgroundColor: "#2d3748",
+                borderRadius: "0",
+                color: "white",
+              }}
               onClick={onToggle}
             >
               <CgMenu />

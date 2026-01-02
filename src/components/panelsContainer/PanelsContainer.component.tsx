@@ -41,7 +41,7 @@ const PanelsContainer = () => {
         />
       )}
       <PanelsFooter
-        setView={(viewValue) => setView(viewValue as "on" | "off" | "splitted")}
+        setView={viewValue => setView(viewValue as "on" | "off" | "splitted")}
         IViews={IViews}
         doc={doc}
       />

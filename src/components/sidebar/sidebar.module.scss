@@ -1,29 +1,29 @@
-@import '/src/styles/variables';
+@import "/src/styles/variables";
 
 .sidebar {
-    display: inline-flex;
-    height: 100vh;
+  display: inline-flex;
+  height: 100vh;
 
-    @include smallDevice {
-        height: calc(100vh - #{$navbarHeight});
-        position: absolute;
-        z-index: 99;
-        width: 100% !important;
-    }
+  @include smallDevice {
+    height: calc(100vh - #{$navbarHeight});
+    position: absolute;
+    z-index: 99;
+    width: 100% !important;
+  }
 }
 
 .openSidebar {
-    width: $sidebarWidth;
+  width: $sidebarWidth;
 }
 
 .sidebarButton {
-    border-right: 1px solid #4a5568 !important;
+  border-right: 1px solid #4a5568 !important;
 
-    &:focus {
-        box-shadow: none !important;
-    }
+  &:focus {
+    box-shadow: none !important;
+  }
 
-    @include smallDevice {
-        display: none !important;
-    }
+  @include smallDevice {
+    display: none !important;
+  }
 }

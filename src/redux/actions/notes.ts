@@ -1,10 +1,10 @@
-import types from '../types/types';
-import { Note } from '../../types/note';
-import { Action } from 'redux';
+import types from "../types/types";
+import { Note } from "../../types/note";
+import { Action } from "redux";
 
 // Define action types
 export interface ChangeActiveNoteAction extends Action {
- type: typeof types.notesActiveNote;
+  type: typeof types.notesActiveNote;
   payload: string;
 }
 
@@ -25,23 +25,26 @@ export interface SaveNoteContentAction extends Action {
 
 // Action creators
 export const changeActiveNote = (id: string): ChangeActiveNoteAction => ({
-    type: types.notesActiveNote,
-    payload: id,
+  type: types.notesActiveNote,
+  payload: id,
 });
 
 export const addNewNote = (note: Note): AddNewNoteAction => ({
-    type: types.notesAddNewNote,
-    payload: note,
+  type: types.notesAddNewNote,
+  payload: note,
 });
 
 export const deleteNote = (id: string): DeleteNoteAction => ({
-    type: types.notesDeleteNote,
-    payload: id,
+  type: types.notesDeleteNote,
+  payload: id,
 });
 
-export const saveNoteContent = (id: string, content: string): SaveNoteContentAction => ({
-    type: types.notesSaveNoteContent,
-    payload: { id, content },
+export const saveNoteContent = (
+  id: string,
+  content: string
+): SaveNoteContentAction => ({
+  type: types.notesSaveNoteContent,
+  payload: { id, content },
 });
 
 // Union type for all note actions

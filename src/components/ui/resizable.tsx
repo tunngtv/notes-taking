@@ -1,17 +1,17 @@
-import { GripVertical } from "lucide-react"
-import * as ResizablePrimitive from "react-resizable-panels"
+import { GripVertical } from "lucide-react";
+import * as ResizablePrimitive from "react-resizable-panels";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 import { Group } from "react-resizable-panels";
 
 interface ResizablePanelGroupProps extends React.ComponentProps<typeof Group> {
-  direction?: 'horizontal' | 'vertical';
+  direction?: "horizontal" | "vertical";
 }
 
 const ResizablePanelGroup = ({
   className,
-  direction = 'horizontal',
+  direction = "horizontal",
   ...props
 }: ResizablePanelGroupProps) => (
   <Group
@@ -22,16 +22,16 @@ const ResizablePanelGroup = ({
     direction={direction}
     {...props}
   />
-)
+);
 
-const ResizablePanel = ResizablePrimitive.Panel
+const ResizablePanel = ResizablePrimitive.Panel;
 
 const ResizableHandle = ({
   withHandle,
   className,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.Separator> & {
-  withHandle?: boolean
+  withHandle?: boolean;
 }) => (
   <ResizablePrimitive.Separator
     className={cn(
@@ -46,6 +46,6 @@ const ResizableHandle = ({
       </div>
     )}
   </ResizablePrimitive.Separator>
-)
+);
 
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle }
+export { ResizablePanelGroup, ResizablePanel, ResizableHandle };

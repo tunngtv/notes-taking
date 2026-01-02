@@ -8,9 +8,14 @@ const IViews = {
   SPLITTED: "splitted",
 } as const;
 
-type ViewType = typeof IViews[keyof typeof IViews];
+type ViewType = (typeof IViews)[keyof typeof IViews];
 
-export function usePanelsStructure(): [typeof IViews, ViewType, React.Dispatch<React.SetStateAction<ViewType>>, () => string] {
+export function usePanelsStructure(): [
+  typeof IViews,
+  ViewType,
+  React.Dispatch<React.SetStateAction<ViewType>>,
+  () => string,
+] {
   const { ON, OFF, SPLITTED } = IViews;
 
   const [view, setView] = useState<ViewType>(SPLITTED);

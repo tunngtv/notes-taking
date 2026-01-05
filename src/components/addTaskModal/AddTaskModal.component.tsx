@@ -7,6 +7,15 @@ import TagIntegrator from "../tagIntegrator/TagIntegrator.component";
 import { Note } from "../../types/note";
 import { Tag } from "../../types/tag";
 
+import { Button } from "../ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "../ui/dialog";
+
 // Removed unused imports
 interface AddTaskModalProps {
   isOpen: boolean;
@@ -52,59 +61,56 @@ const AddTaskModal = ({
       input.current.value = "";
     }
     setTags([]);
+    onClose();
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="fixed inset-0 bg-black/50" onClick={onClose}></div>
-      <div className="relative bg-white rounded-lg shadow-lg max-w-lg w-full mx-4 p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-semibold">Create a new note</h3>
-          <button
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Create a new note</DialogTitle>
+        </DialogHeader>
+
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <label htmlFor="note-title" className="text-sm font-medium">
+              Title
+            </label>
+            <div className="col-span-4">
+              <input
+                ref={input}
+                id="note-title"
+                type="text"
+                placeholder="Note title"
+                spellCheck={false}
+                className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <label className="text-sm font-medium">Tags</label>
+            <div className="col-span-4">
+              <TagIntegrator tags={tags} setTags={setTags} />
+            </div>
+          </div>
+        </div>
+
+        <DialogFooter>
+          <Button
+            type="button"
+            variant="outline"
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700"
-          >
-            &times;
-          </button>
-        </div>
-
-        {/* <form onSubmit={addNote} className="mb-4"> */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Title</label>
-          <input
-            ref={input}
-            type="text"
-            placeholder="Note title"
-            spellCheck={false}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Tags</label>
-          <TagIntegrator tags={tags} setTags={setTags} />
-        </div>
-        {/* </form> */}
-
-        <div className="flex justify-end space-x-2">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 text-sm font-medium border rounded"
+            className="h-10"
           >
             Cancel
-          </button>
-          <button
-            type="submit"
-            onClick={addNote}
-            className="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
+          </Button>
+          <Button type="button" onClick={addNote} className="h-10">
             Create
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 };
 

@@ -22,7 +22,10 @@ const NavigationHeader = ({ setVisibleNotes }: NavigationHeaderProps) => {
       <h2 style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>Notes</h2>
       <div style={{ display: "flex" }}>
         <SearchTask setVisibleNotes={setVisibleNotes} />
-        <Button style={{ padding: "1rem", borderRadius: "0" }} onClick={onOpen}>
+        <Button
+          style={{ padding: "1rem", borderRadius: "0", height: "40px" }}
+          onClick={onOpen}
+        >
           <BsPencilSquare />
         </Button>
         <AddTaskModal

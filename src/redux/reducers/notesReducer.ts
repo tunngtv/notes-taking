@@ -8,6 +8,7 @@ import {
   SaveNoteContentAction,
 } from "../actions/notes";
 import { Action } from "redux";
+import { RootState } from "../store/store";
 
 export interface NotesState {
   notes: Note[];
@@ -24,6 +25,10 @@ export const notesReducer = (
   action: Action
 ): NotesState => {
   switch (action.type) {
+    case "RESET_STATE": {
+      const typedAction = action as { type: "RESET_STATE"; payload: RootState };
+      return typedAction.payload.notes || state;
+    }
     case types.notesActiveNote: {
       const typedAction = action as ChangeActiveNoteAction;
       return {

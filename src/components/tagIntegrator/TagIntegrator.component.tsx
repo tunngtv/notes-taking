@@ -2,6 +2,14 @@ import React, { useRef } from "react";
 
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 import { Tag } from "../../types/tag";
 
@@ -12,7 +20,7 @@ interface TagIntegratorProps {
 
 const TagIntegrator = ({ tags, setTags }: TagIntegratorProps) => {
   const input = useRef<HTMLInputElement>(null);
-  const selector = useRef<HTMLSelectElement>(null);
+  const [selectedColor, setSelectedColor] = React.useState("");
 
   const colors = [
     "red",
@@ -29,13 +37,12 @@ const TagIntegrator = ({ tags, setTags }: TagIntegratorProps) => {
     event.preventDefault();
 
     const tagTitle = input.current?.value;
-    const tagColor = selector.current?.value;
 
-    if (!tagTitle?.trim().length || !tagColor) return;
+    if (!tagTitle?.trim().length || !selectedColor) return;
 
     const newTag = {
       title: tagTitle,
-      color: tagColor,
+      color: selectedColor,
       id: Date.now(),
     };
 
@@ -43,6 +50,7 @@ const TagIntegrator = ({ tags, setTags }: TagIntegratorProps) => {
     if (input.current) {
       input.current.value = "";
     }
+    setSelectedColor("");
   };
 
   const removeTag = (selectedTagId: number) => {
@@ -52,49 +60,61 @@ const TagIntegrator = ({ tags, setTags }: TagIntegratorProps) => {
 
   return (
     <div>
-      <form className="flex" onSubmit={addNewTag}>
+      <form className="flex gap-2" onSubmit={addNewTag}>
         <Input
-          className="rounded-r-none border-r-0"
+          className="flex-1"
           required
           placeholder="Tag title"
           spellCheck={false}
           ref={input}
         />
-        <select
-          className="rounded-none border-l-0 border-r-0 flex-[0.4]"
-          ref={selector}
-          required
-        >
-          <option value="">Color</option>
-          {colors.map((color, index) => (
-            <option key={index} value={color}>
-              {color}
-            </option>
-          ))}
-        </select>
-        <Button type="submit" className="rounded-l-none border-l-0">
+        <Select value={selectedColor} onValueChange={setSelectedColor}>
+          <SelectTrigger className="w-[120px]">
+            <SelectValue placeholder="Color" />
+          </SelectTrigger>
+          <SelectContent>
+            {colors.map((color, index) => (
+              <SelectItem key={index} value={color}>
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-4 h-4 rounded-full"
+                    style={{ backgroundColor: color }}
+                  ></span>
+                  {color.charAt(0).toUpperCase() + color.slice(1)}
+                </div>
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Button type="submit" className="h-10">
           Add
         </Button>
       </form>
-      <div className="bg-gray-600 rounded-md rounded-t-none mt-0 pt-2 pb-1 px-4 select-none">
-        {tags.length ? (
-          tags.map(({ title, color, id }) => (
-            <div
-              key={id}
-              className={`inline-block m-1 px-2 py-1 rounded text-xs text-white`}
-              style={{ backgroundColor: color }}
-            >
-              {title}
-              <button
-                onClick={() => removeTag(id)}
-                className="ml-2 text-white hover:text-gray-200"
+      <div className="mt-3">
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {tags.map(({ title, color, id }) => (
+              <Badge
+                key={id}
+                className="text-xs flex items-center gap-1 px-2 py-1"
+                style={{ backgroundColor: color, color: "white" }}
               >
-                &times;
-              </button>
-            </div>
-          ))
-        ) : (
-          <div className="text-blue-100 truncate mb-1">Enter a tag</div>
+                {title}
+                <button
+                  onClick={() => removeTag(id)}
+                  className="ml-1 text-white hover:text-gray-200 leading-none"
+                  aria-label="Remove tag"
+                >
+                  &times;
+                </button>
+              </Badge>
+            ))}
+          </div>
+        )}
+        {tags.length === 0 && (
+          <div className="text-muted-foreground text-sm italic pt-2">
+            No tags added yet
+          </div>
         )}
       </div>
     </div>

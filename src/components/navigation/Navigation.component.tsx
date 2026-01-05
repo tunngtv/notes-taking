@@ -9,13 +9,16 @@ const Navigation = ({ setFlag }: { setFlag?: (flag: boolean) => void }) => {
   const { notes } = useNotes();
 
   const [visibleNotes, setVisibleNotes] = useState(notes.notes);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Set loading to false after a short delay to simulate loading
     const timer = setTimeout(() => {
       if (notes.notes) {
         setVisibleNotes(notes.notes);
+        setIsLoading(false);
       }
-    }, 0);
+    }, 300); // Adding a small delay to show the skeleton loading
 
     return () => clearTimeout(timer);
   }, [notes.notes]);
@@ -23,7 +26,8 @@ const Navigation = ({ setFlag }: { setFlag?: (flag: boolean) => void }) => {
   return (
     <div className={styles.navigation}>
       <NavigationHeader setVisibleNotes={setVisibleNotes} />
-      <Notes setFlag={setFlag} items={visibleNotes} />
+      <hr />
+      <Notes setFlag={setFlag} items={visibleNotes} isLoading={isLoading} />
     </div>
   );
 };

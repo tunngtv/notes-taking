@@ -14,7 +14,7 @@ const Sidebar = ({ setFlag }: SidebarProps) => {
 
   return (
     <div
-      style={{ backgroundColor: "#4a5568" }}
+      // style={{ backgroundColor: "#4a5568" }}
       className={
         open ? `${styles.sidebar} ${styles.openSidebar}` : styles.sidebar
       }

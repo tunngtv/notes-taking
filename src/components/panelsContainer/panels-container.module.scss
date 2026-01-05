@@ -1,4 +1,4 @@
-@import "/src/styles/variables";
+@use "../../styles/variables";
 
 .panelsContainer {
   display: grid;
@@ -10,8 +10,8 @@
   grid-template-rows: 1fr min-content;
   width: 100%;
 
-  @include smallDevice {
-    height: calc(100vh - #{$navbarHeight});
+  @include variables.smallDevice {
+    height: calc(100vh - #{variables.$navbarHeight});
     grid-template-areas: "editor" "preview" "panelsFooter";
     grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr min-content;
@@ -22,7 +22,7 @@
   grid-template-areas: "preview" "panelsFooter";
   grid-template-columns: 100%;
 
-  @include smallDevice {
+  @include variables.smallDevice {
     grid-template-areas: "preview" "panelsFooter";
     grid-template-rows: 1fr min-content;
   }
@@ -32,7 +32,7 @@
   grid-template-areas: "editor" "panelsFooter panelsFooter";
   grid-template-columns: 100%;
 
-  @include smallDevice {
+  @include variables.smallDevice {
     grid-template-areas: "editor" "panelsFooter";
     grid-template-rows: 1fr min-content;
   }

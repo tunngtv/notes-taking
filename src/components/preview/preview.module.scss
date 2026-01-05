@@ -1,4 +1,4 @@
-@import "/src//styles/variables";
+@use "../../styles/variables";
 
 .preview {
   grid-area: preview;
@@ -6,13 +6,13 @@
   overflow-y: auto;
   padding: 0.5rem 1rem;
   width: 100%;
-  @include scrollbar;
+  @include variables.scrollbar;
 
   a {
     color: hsl(var(--primary));
   }
 
-  @include smallDevice {
+  @include variables.smallDevice {
     padding: 0.5rem 1rem;
     max-width: 100%;
   }
@@ -21,7 +21,7 @@
     max-width: 100%;
 
     * {
-      @include scrollbar;
+      @include variables.scrollbar;
     }
   }
 

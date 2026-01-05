@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables";
 
 body {
   position: fixed !important;
@@ -25,11 +25,11 @@ body {
   width: 100%;
   overflow: hidden;
 
-  @include smallDevice {
+  @include variables.smallDevice {
     font-size: 14px;
     grid-template-areas: "navbar" "panelsContainer";
     grid-template-columns: 100%;
-    grid-template-rows: $navbarHeight calc(100% - #{$navbarHeight});
+    grid-template-rows: variables.$navbarHeight calc(100% - #{variables.$navbarHeight});
   }
 }
 
@@ -37,9 +37,9 @@ body {
 .cm-scroller {
   font-family: var(--font-body) !important;
   overflow: scroll;
-  @include scrollbar;
+  @include variables.scrollbar;
 
-  @include smallDevice {
+  @include variables.smallDevice {
     overflow-y: auto;
   }
 }

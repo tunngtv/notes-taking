@@ -1,11 +1,11 @@
-@import "/src/styles/variables";
+@use "../../styles/variables";
 
 .sidebar {
   display: inline-flex;
   height: 100vh;
 
-  @include smallDevice {
-    height: calc(100vh - #{$navbarHeight});
+  @include variables.smallDevice {
+    height: calc(100vh - #{variables.$navbarHeight});
     position: absolute;
     z-index: 99;
     width: 100% !important;
@@ -13,7 +13,7 @@
 }
 
 .openSidebar {
-  width: $sidebarWidth;
+  width: variables.$sidebarWidth;
 }
 
 .sidebarButton {
@@ -23,7 +23,7 @@
     box-shadow: none !important;
   }
 
-  @include smallDevice {
+  @include variables.smallDevice {
     display: none !important;
   }
 }

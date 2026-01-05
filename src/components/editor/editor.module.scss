@@ -1,11 +1,11 @@
-@import "/src//styles/variables";
+@use "../../styles/variables";
 
 .editor {
   grid-area: editor;
   overflow-x: hidden;
   width: 100%;
 
-  @include smallDevice {
+  @include variables.smallDevice {
     border-bottom: 2px solid hsl(var(--border));
   }
 }

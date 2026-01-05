@@ -34,15 +34,15 @@ const PanelsFooter = ({ setView, IViews, doc }: PanelsFooterProps) => {
 
   return (
     <div
-      className={`bg-gray-700 dark:bg-gray-700 px-2 flex justify-between items-center w-full ${styles.panelsFooter}`}
+      className={`bg-gray-700 dark:bg-gray-700 flex justify-between items-center w-full ${styles.panelsFooter}`}
     >
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center">
         <DeleteNoteButton />
         <CopyContentButton document={doc} />
         <DownloadFileButton document={doc} />
         <SaveChangesButton document={doc} />
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

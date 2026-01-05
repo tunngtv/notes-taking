@@ -16,9 +16,8 @@ const NoteItem = ({ data }: NoteProps) => {
     <li>
       <button
         className={`w-full text-left transition-colors break-words border-b border-gray-700 ${
-          isActive
-            ? "!bg-[rgba(240,234,234,0.068)]" : ""
-            // : "bg-muted hover:bg-accent"
+          isActive ? "!bg-[rgba(240,234,234,0.068)]" : ""
+          // : "bg-muted hover:bg-accent"
         }`}
         onClick={() => changeActiveNote(id)}
       >

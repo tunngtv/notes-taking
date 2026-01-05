@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ThemeProvider } from "./components/ThemeProvider";
-import AsyncReduxProvider from "./components/AsyncReduxProvider";
+import { ThemeProvider } from "./providers/ThemeProvider.tsx";
+import AsyncReduxProvider from "./providers/AsyncReduxProvider.tsx";
 import "./index.css";
 import "./styles/index.scss";
 import App from "./App.tsx";

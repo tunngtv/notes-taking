@@ -19,7 +19,7 @@ const NavigationHeader = ({ setVisibleNotes }: NavigationHeaderProps) => {
 
   return (
     <div className={navigationHeader.navigationHeader}>
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>Notes</h2>
+      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>Notes Taking</h2>
       <div style={{ display: "flex" }}>
         <SearchTask setVisibleNotes={setVisibleNotes} />
         <Button

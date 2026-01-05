@@ -46,7 +46,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
           <hr className="my-3" />
           <a
             className="flex items-center text-blue-200 hover:underline"
-            href="https://github.com/MxxSantiago/react-markdown-notes"
+            href="https://github.com/tunngtv/notes-taking.git"
             target="_blank"
             rel="noopener noreferrer"
           >

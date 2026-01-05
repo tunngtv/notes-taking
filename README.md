@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# Notes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, feature-rich note-taking application built with React, TypeScript, and Tailwind CSS. This application provides a clean, intuitive interface for creating, organizing, and managing your notes with support for Markdown formatting.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Rich Text Editing**: CodeMirror-powered editor with Markdown support
+- **Real-time Preview**: Side-by-side editing and preview panes
+- **Tag Organization**: Organize notes with customizable tags and colors
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Light/Dark Theme**: Automatic theme switching with manual override option
+- **Persistent Storage**: Notes stored locally using IndexedDB
+- **Search Functionality**: Quickly find notes by title or content
+- **Export Options**: Download notes as text files
+- **Keyboard Shortcuts**: Efficient keyboard navigation and shortcuts
+- **Skeleton Loading**: Smooth loading experiences with skeleton placeholders
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: React 19 with TypeScript
+- **State Management**: Redux Toolkit
+- **UI Components**: Custom components with shadcn/ui primitives
+- **Styling**: Tailwind CSS with custom theme
+- **Editor**: CodeMirror with Markdown support
+- **Icons**: Lucide React and React Icons
+- **Build Tool**: Vite
+- **Database**: IndexedDB for local storage
+- **Code Quality**: ESLint, Prettier, TypeScript
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+1. Clone the repository:
+```bash
+git clone https://github.com/tunngtv/notes-taking.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+2. Navigate to the project directory:
+```bash
+cd notes-app
 ```
+
+3. Install dependencies:
+```bash
+npm install
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5175`.
+
+## Usage
+
+- **Creating Notes**: Click the "+" button in the sidebar to create a new note
+- **Editing Notes**: Select a note from the sidebar to edit its content
+- **Adding Tags**: Use the tag input field to add colored tags to your notes
+- **Switching Views**: Use the view controls in the footer to toggle between editor-only, preview-only, or split view
+- **Searching Notes**: Use the search bar in the navigation header to find specific notes
+- **Changing Themes**: Click the theme toggle button in the navbar to switch between light and dark mode
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── editor/          # Editor component with CodeMirror
+│   ├── preview/         # Markdown preview component
+│   ├── navigation/      # Sidebar navigation components
+│   ├── ui/              # Reusable UI components (buttons, dialogs, etc.)
+│   └── ...
+├── hooks/              # Custom React hooks
+├── redux/              # Redux store, actions, and reducers
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── styles/             # Global styles and variables
+```
+
+## Key Components
+
+- **PanelsContainer**: Main container for editor and preview panes
+- **TagIntegrator**: Component for adding and managing note tags
+- **Navigation**: Sidebar with note listing and search
+- **Editor**: CodeMirror-based editor with Markdown support
+- **Preview**: Real-time Markdown preview renderer
+- **ThemeProvider**: Context provider for theme management
+
+## Customization
+
+The application can be easily customized by:
+
+1. Modifying the theme variables in `src/index.css`
+2. Adjusting the UI components in the `src/components` directory
+3. Extending the tag system in `src/components/tagIntegrator`
+4. Adding new editor features in `src/components/editor`
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with [Vite](https://vitejs.dev/) for fast development
+- UI components inspired by [shadcn/ui](https://ui.shadcn.com/)
+- Icons provided by [Lucide React](https://lucide.dev/)
+- Editor powered by [CodeMirror](https://codemirror.net/)

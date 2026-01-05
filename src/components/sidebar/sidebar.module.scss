@@ -3,6 +3,7 @@
 .sidebar {
   display: inline-flex;
   height: 100vh;
+  background-color: hsl(var(--background));
 
   @include variables.smallDevice {
     height: calc(100vh - #{variables.$navbarHeight});

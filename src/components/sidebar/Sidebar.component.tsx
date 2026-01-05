@@ -9,12 +9,11 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ setFlag }: SidebarProps) => {
-  const [open, setOpen] = useState(true);
+ const [open, setOpen] = useState(true);
   const onToggle = () => setOpen(!open);
 
   return (
     <div
-      // style={{ backgroundColor: "#4a5568" }}
       className={
         open ? `${styles.sidebar} ${styles.openSidebar}` : styles.sidebar
       }

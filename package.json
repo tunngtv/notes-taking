@@ -1,8 +1,9 @@
 {
-  "name": "notes-app",
+  "name": "notes-taking-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A simple and elegant note-taking application with Markdown support",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

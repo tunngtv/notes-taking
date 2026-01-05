@@ -1,6 +1,12 @@
-import { Note } from "./types/note";
-import { generateUUID } from "./utils/uuid";
+/**
+ * Initial note data for the application
+ * This file defines the default note that appears when the app starts
+ */
 
+import { Note } from "../types/note";
+import { generateUUID } from "../utils/uuid";
+
+// Define the initial note content
 const initialNoteContent = `## Welcome to *Markdown* Notes
 
 ![ ](https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif)
@@ -14,6 +20,10 @@ This app uses **GitHub Flavored Markdown**, the dialect of Markdown that is curr
 Learn [the basic markdown syntax](https://www.markdownguide.org/basic-syntax/).
 `;
 
+/**
+ * Initial note object with default values
+ * Used to populate the application when no notes exist
+ */
 export const initialNote: Note = {
   id: generateUUID(),
   title: "Welcome to Markdown Notes",

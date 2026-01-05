@@ -1,9 +1,14 @@
+/**
+ * React Markdown Components
+ * Defines custom components for rendering markdown content with proper styling
+ */
+
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-// Define types for ReactMarkdown components
+// Type definitions for ReactMarkdown components
 type CodeComponentProps = {
   inline?: boolean;
   className?: string;
@@ -18,10 +23,19 @@ type HeadingComponentProps = {
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLHeadingElement>;
 
-// Function to get components based on theme mode
+// Theme-specific syntax highlighting styles
+const syntaxHighlightStyles = {
+  light: atomOneLight,
+  dark: atomOneDark,
+};
+
+/**
+ * Gets the appropriate components based on the current theme mode
+ * @param themeMode The current theme mode ("light" or "dark", defaults to "dark")
+ * @returns Object containing the custom markdown components
+ */
 export const getComponents = (themeMode: "light" | "dark" = "dark") => {
-  const syntaxHighlightStyle =
-    themeMode === "light" ? atomOneLight : atomOneDark;
+  const syntaxHighlightStyle = syntaxHighlightStyles[themeMode];
 
   return {
     code({ inline, className, children, ...props }: CodeComponentProps) {

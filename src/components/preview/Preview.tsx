@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTheme } from "@/hooks/useTheme";
-import { getComponents } from "../../react-markdown-components";
+import { getComponents } from "../markdown/react-markdown-components";
 // import './preview.module.scss';
 import styles from "./preview.module.scss";
 

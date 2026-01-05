@@ -1,4 +1,4 @@
-import { initialNote } from "@/initial-note";
+import { initialNote } from "@/data/initial-note";
 import types from "../types/types";
 import { Note } from "../../types/note";
 import {

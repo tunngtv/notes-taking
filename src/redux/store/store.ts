@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { notesReducer, NotesState } from "../reducers/notesReducer";
-import { loadState, saveState } from "../../localStorage";
+import { loadState, saveState } from "../../utils/localStorage";
 
 // Define the RootState type
 export interface RootState {

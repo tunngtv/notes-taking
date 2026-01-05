@@ -15,7 +15,7 @@ const AsyncReduxProvider: React.FC<AsyncReduxProviderProps> = ({
     const initializeStore = async () => {
       try {
         // Wait for the store to be initialized with persisted data
-        const persistedState = await import("../localStorage").then(mod =>
+        const persistedState = await import("../utils/localStorage").then(mod =>
           mod.loadState()
         );
         if (persistedState) {

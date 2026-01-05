@@ -31,13 +31,13 @@ const SearchTask = ({ setVisibleNotes }: SearchTaskProps) => {
       style={{ position: "relative", display: "flex", alignItems: "center" }}
     >
       <IoSearchOutline
-        color="#5B5F5E"
-        style={{ position: "absolute", left: "10px", zIndex: 1 }}
+        className="text-muted-foreground absolute left-3 z-10"
+        style={{ top: "50%", transform: "translateY(-50%)" }}
       />
       <Input
         value={search}
         placeholder="Search"
-        style={{ paddingLeft: "40px" }}
+        style={{ paddingLeft: "35px" }}
         onChange={handleChange}
         className="rounded-none"
       />

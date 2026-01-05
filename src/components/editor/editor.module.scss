@@ -1,4 +1,4 @@
-@use "/src//styles/variables" as *;
+@import "/src//styles/variables";
 
 .editor {
   grid-area: editor;
@@ -6,6 +6,6 @@
   width: 100%;
 
   @include smallDevice {
-    border-bottom: 2px solid var(--chakra-colors-gray-600);
+    border-bottom: 2px solid hsl(var(--border));
   }
 }

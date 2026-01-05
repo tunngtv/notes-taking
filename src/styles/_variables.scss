@@ -6,14 +6,14 @@ $smallDeviceSize: 1099px;
 
 @mixin scrollbar {
   &::-webkit-scrollbar {
-    background-color: #e2e8f0;
+    background-color: hsl(var(--muted));
     -webkit-appearance: none;
     width: 0.35em;
     height: 0.35rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #cbd5e0;
+    background-color: hsl(var(--muted-foreground));
     border-radius: 1rem;
   }
 }
@@ -27,7 +27,7 @@ $smallDeviceSize: 1099px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #4a5568;
+    background-color: hsl(var(--muted-foreground));
   }
 }
 

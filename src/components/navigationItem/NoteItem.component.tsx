@@ -15,11 +15,13 @@ const NoteItem = ({ data }: NoteProps) => {
   return (
     <li>
       <button
-        className={`w-full text-left transition-colors break-words border-b border-gray-700 ${
-          isActive ? "!bg-[rgba(240,234,234,0.068)]" : ""
-          // : "bg-muted hover:bg-accent"
+        className={`w-full text-left transition-colors break-words border-b border-border ${
+          isActive ? "bg-accent" : "hover:bg-accent"
         }`}
-        onClick={() => changeActiveNote(id)}
+        onClick={() => {
+          if (notes.activeNote === id) return;
+          changeActiveNote(id);
+        }}
       >
         <div className="p-3">
           <b className="block truncate">{title}</b>

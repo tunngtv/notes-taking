@@ -23,7 +23,7 @@ const Sidebar = ({ setFlag }: SidebarProps) => {
       <Button
         variant="secondary"
         className={styles.sidebarButton}
-        style={{ color: "#fff", borderRadius: "0", height: "100%" }}
+        style={{ borderRadius: "0", height: "100%" }}
         onClick={onToggle}
       >
         {open ? <CgChevronDoubleLeft /> : <CgChevronDoubleRight />}

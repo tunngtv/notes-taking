@@ -37,7 +37,7 @@ const DownloadFileButton = ({ document: doc }: DownloadFileButtonProps) => {
             variant="outline"
             size="icon"
             onClick={handleDownload}
-            className="border-none rounded-none bg-gray-700 focus:ring-0 focus:ring-offset-0"
+            className="border-none rounded-none bg-muted focus:ring-0 focus:ring-offset-0"
           >
             <CgSoftwareDownload className="h-4 w-4" />
           </Button>

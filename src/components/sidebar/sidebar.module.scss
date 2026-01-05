@@ -1,4 +1,4 @@
-@use "/src/styles/variables" as *;
+@import "/src/styles/variables";
 
 .sidebar {
   display: inline-flex;
@@ -17,7 +17,7 @@
 }
 
 .sidebarButton {
-  border-right: 1px solid #4a5568 !important;
+  border-right: 1px solid hsl(var(--border)) !important;
 
   &:focus {
     box-shadow: none !important;

@@ -24,7 +24,7 @@ const AboutButton = () => {
             variant="outline"
             size="icon"
             onClick={onOpen}
-            className="border-none rounded-none bg-gray-700 focus:ring-0 focus:ring-offset-0"
+            className="border-none rounded-none bg-muted focus:ring-0 focus:ring-offset-0"
           >
             <IoHelpCircleOutline className="h-4 w-4" />
           </Button>

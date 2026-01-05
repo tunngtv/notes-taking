@@ -1,4 +1,4 @@
-@use "/src//styles/variables" as *;
+@import "/src//styles/variables";
 
 .preview {
   grid-area: preview;
@@ -9,7 +9,7 @@
   @include scrollbar;
 
   a {
-    color: var(--primary-color, #007bff);
+    color: hsl(var(--primary));
   }
 
   @include smallDevice {

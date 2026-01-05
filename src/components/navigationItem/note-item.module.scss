@@ -3,24 +3,24 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1rem 1rem 0.75rem 1rem;
-  border-bottom: 1px solid #4a5568;
+  padding: 1rem 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
 
   &:hover {
-    background-color: rgba(240, 234, 234, 0.034);
+    background-color: hsla(var(--foreground), 0.034);
   }
 
   &:active {
-    background-color: rgba(240, 234, 234, 0.043);
+    background-color: hsla(var(--foreground), 0.043);
   }
 }
 
 .selectedNote {
   align-items: flex-start;
-  background-color: rgba(240, 234, 234, 0.068) !important;
+  background-color: hsla(var(--foreground), 0.068) !important;
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 1rem 1rem 0.75rem 1rem;
-  border-bottom: 1px solid #4a5568;
+  border-bottom: 1px solid hsl(var(--border));
 }

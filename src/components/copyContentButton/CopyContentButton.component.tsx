@@ -34,10 +34,10 @@ const CopyContentButton = ({ document }: CopyContentButtonProps) => {
             variant="outline"
             size="icon"
             onClick={handleCopy}
-            className="border-none rounded-none bg-gray-700 focus:ring-0 focus:ring-offset-0"
+            className="border-none rounded-none bg-muted focus:ring-0 focus:ring-offset-0"
           >
             {hasCopied ? (
-              <CgCheckO className="h-4 w-4 text-green-50" />
+              <CgCheckO className="h-4 w-4 text-green-600 dark:text-green-400" />
             ) : (
               <CgCopy className="h-4 w-4" />
             )}

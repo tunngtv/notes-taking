@@ -30,21 +30,25 @@ A modern, feature-rich note-taking application built with React, TypeScript, and
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/tunngtv/notes-taking.git
 ```
 
 2. Navigate to the project directory:
+
 ```bash
 cd notes-app
 ```
 
 3. Install dependencies:
+
 ```bash
 npm install
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 ```

@@ -57,7 +57,7 @@ const SaveChangesButton = ({ document }: SaveChangesButtonProps) => {
             onClick={saveNote}
             className="border-none rounded-none focus:ring-0 focus:ring-offset-0"
           >
-            <IoSaveOutline className="h-4 w-4 text-green-200" />
+            <IoSaveOutline className="h-4 w-4 text-green-600 dark:text-green-400" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>

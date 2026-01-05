@@ -34,7 +34,7 @@ const DeleteNoteButton = () => {
               onClick={handleOpen}
               className="border-none rounded-none focus:ring-0 focus:ring-offset-0"
             >
-              <CgTrash className="h-4 w-4 text-red-200" />
+              <CgTrash className="h-4 w-4 text-red-600 dark:text-red-400" />
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-4">

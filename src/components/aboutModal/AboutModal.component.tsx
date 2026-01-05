@@ -15,9 +15,9 @@ interface AboutModalProps {
 const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md bg-gray-600">
+      <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-white">About</DialogTitle>
+          <DialogTitle>About</DialogTitle>
         </DialogHeader>
         <div className="py-4">
           <h4 className="text-md font-medium mb-2">Markdown resources</h4>
@@ -27,7 +27,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                 href="https://www.markdownguide.org/basic-syntax/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-200 hover:underline"
+                className="text-primary hover:underline"
               >
                 Learn the basic Syntax
               </a>
@@ -37,7 +37,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                 href="https://www.markdownguide.org/extended-syntax/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-200 hover:underline"
+                className="text-primary hover:underline"
               >
                 Learn the extended Syntax
               </a>
@@ -45,7 +45,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
           </ul>
           <hr className="my-3" />
           <a
-            className="flex items-center text-blue-200 hover:underline"
+            className="flex items-center text-primary hover:underline"
             href="https://github.com/tunngtv/notes-taking.git"
             target="_blank"
             rel="noopener noreferrer"

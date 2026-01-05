@@ -44,6 +44,7 @@ const PanelsContainer = () => {
         setView={viewValue => setView(viewValue as "on" | "off" | "splitted")}
         IViews={IViews}
         doc={doc}
+        currentView={view}
       />
     </div>
   );

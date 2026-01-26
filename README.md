@@ -101,12 +101,15 @@ The application can be easily customized by:
 
 ## Contributing
 
+This project follows the principles outlined in our [constitution](.specify/memory/constitution.md), which establishes standards for code quality, testing, user experience consistency, and performance.
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
+3. Make your changes while adhering to the project's constitution principles
+4. Ensure your changes meet the quality standards (linting, testing, accessibility)
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ## License
 

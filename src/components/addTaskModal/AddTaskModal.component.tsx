@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-
 import useNotes from "../../hooks/useNotes";
+import { generateUUID } from "../../utils/uuid";
 
 import TagIntegrator from "../tagIntegrator/TagIntegrator.component";
 
@@ -46,7 +46,7 @@ const AddTaskModal = ({
 
     const newNote = {
       content: `# ${noteTitle}`,
-      id: `note_${Date.now()}`, // Convert to string
+      id: generateUUID(),
       tags: tags,
       title: noteTitle,
       createdAt: Date.now(),

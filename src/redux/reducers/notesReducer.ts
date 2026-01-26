@@ -27,24 +27,7 @@ export const notesReducer = (
   switch (action.type) {
     case "RESET_STATE": {
       const typedAction = action as { type: "RESET_STATE"; payload: RootState };
-      const loadedState = typedAction.payload.notes;
-      
-      // If there are no notes in the loaded state, use initial state with sample note
-      if (!loadedState || loadedState.notes.length === 0) {
-        return initialState;
-      }
-      
-      // Ensure activeNote exists in the notes array
-      const hasValidActiveNote = loadedState.notes.some(note => note.id === loadedState.activeNote);
-      if (!hasValidActiveNote && loadedState.notes.length > 0) {
-        // Set first note as active if current activeNote doesn't exist
-        return {
-          ...loadedState,
-          activeNote: loadedState.notes[0].id,
-        };
-      }
-      
-      return loadedState;
+      return typedAction.payload.notes;
     }
     case types.notesActiveNote: {
       const typedAction = action as ChangeActiveNoteAction;
